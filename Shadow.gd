@@ -1,17 +1,29 @@
 extends KinematicBody2D
 
-const Acceleration = 450
-const MaxSpeed = 78
+
+const MaxSpeed = 80
 const Friction = 0.4
-const AirFriction = 0.004
-const Gravity = 360
-const JumpForce = 180
+const AirFriction = 0.002
+const JumpForce = 200
+
+var Acceleration = 450
+var Gravity : int = 360
 var motion = Vector2.ZERO
 
-onready var player = $Player
 onready var sprite = $ShadowSprite
+onready var animationPlayer = $AnimationPlayer
+#onready var shadowBox = $ShadowShape2D
+#onready var shadowBox2 = $Area2D/ShadowShape
 
 func _physics_process(delta):
+	
+#	if visible == false:
+#		shadowBox.set_disabled(true) 
+##		shadowBox2.set_disabled(true)
+#	else:
+#		shadowBox.set_disabled(false) 
+##		shadowBox2.set_disabled(false)
+	
 	
 	var inputX = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
@@ -19,6 +31,9 @@ func _physics_process(delta):
 		motion.x += inputX * Acceleration * delta
 		motion.x = clamp(motion.x, -MaxSpeed, MaxSpeed)
 		sprite.flip_h = inputX < 0
+		animationPlayer.play("walk")
+	else:
+		animationPlayer.stop()
 	
 	motion.y += Gravity * delta
 	
@@ -36,17 +51,3 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, AirFriction)
 	
 	motion = move_and_slide(motion, Vector2.UP)
-
-
-
-
-func _on_Area2D_body_entered(body):
-	sprite.visible = true
-
-
-func _on_Area2D_area_entered(area):
-	visible = true
-
-
-func _on_Area2D_area_exited(area):
-	visible = false

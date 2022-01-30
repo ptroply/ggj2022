@@ -1,24 +1,30 @@
 extends KinematicBody2D
 
-const Acceleration = 450
-const MaxSpeed = 78
-const Friction = 0.4
-const AirFriction = 0.004
-const Gravity = 360
-const JumpForce = 180
+export var location : Vector2 = Vector2()
 
-var motion = Vector2.ZERO
+const Acceleration = 450
+const MaxSpeed = 80
+const Friction = 0.4
+const AirFriction = 0.002
+const Gravity = 360
+const JumpForce = 200
+
+var motion : Vector2 = Vector2()
 
 onready var sprite = $Sprite
+onready var animationPlayer = $AnimationPlayer
 
 func _physics_process(delta):
 	
 	var inputX = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
 	if inputX != 0:
+		animationPlayer.play("walk")
 		motion.x += inputX * Acceleration * delta
 		motion.x = clamp(motion.x, -MaxSpeed, MaxSpeed)
 		sprite.flip_h = inputX < 0
+	else:
+		animationPlayer.stop()
 	
 	motion.y += Gravity * delta
 	
