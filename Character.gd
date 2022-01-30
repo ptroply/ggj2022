@@ -5,7 +5,6 @@ var c: Vector2
 
 onready var player = get_node("Player")
 onready var shadow = get_node("Shadow")
-onready var shadowSound = $ShadowSound
 
 func _process(_delta):
 	
@@ -23,7 +22,6 @@ func _process(_delta):
 		shadow.visible = false
 	
 	if shadow.isInLight && player.isInLight:
-		shadowSound.play()
 		shadow.visible = true
 	
 	if !shadow.isInLight && !player.isInLight:

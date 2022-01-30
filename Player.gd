@@ -14,6 +14,7 @@ var isOnLadder : bool = false
 var motion : Vector2 = Vector2()
 
 onready var sprite = $Sprite
+onready var climbingSprite = $SpriteClimb
 onready var animationPlayer = $AnimationPlayer
 onready var walkingSound = $WalkingSound
 
@@ -26,9 +27,16 @@ func _on_Light_area_exited(_area):
 
 func _physics_process(delta):
 	
+	
+	
 	var inputX = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
+	print(inputX)
+	
 	if isOnLadder:
+		
+		sprite.visible = false
+		climbingSprite.visible = true
 		
 		if Input.is_action_pressed("ui_up"):
 			Gravity = 0
@@ -43,6 +51,8 @@ func _physics_process(delta):
 			motion.y = 0
 			
 	else:
+		climbingSprite.visible = false
+		sprite.visible = true
 		Gravity = 360
 	
 	if inputX != 0:
@@ -56,16 +66,12 @@ func _physics_process(delta):
 	motion.y += Gravity * delta
 	
 	if is_on_floor():
+		
 		if inputX == 0:
 			motion.x = lerp(motion.x, 0, Friction)
 		
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = -JumpForce
-		
-		if inputX != 0:
-			walkingSound.play()
-		else:
-			walkingSound.stop()
 			
 	else:
 		if Input.is_action_just_released("ui_up") and motion.y < -JumpForce/2:
@@ -73,7 +79,7 @@ func _physics_process(delta):
 		
 		if inputX == 0:
 			motion.x = lerp(motion.x, 0, AirFriction)
-	
+
 	
 	motion = move_and_slide(motion, Vector2.UP)
 

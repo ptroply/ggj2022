@@ -13,6 +13,8 @@ var motion : Vector2 = Vector2()
 
 onready var sprite = $ShadowSprite
 onready var animationPlayer = $AnimationPlayer
+onready var shadowSound = $ShadowSound
+
 #onready var shadowBox = $ShadowShape2D
 #onready var shadowBox2 = $Area2D/ShadowShape
 

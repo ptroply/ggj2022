@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/shadowWalkCycle.png" type="Texture" id=1]
 [ext_resource path="res://Shadow.gd" type="Script" id=2]
+[ext_resource path="res://assets/sfx/Shadow Birth.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2, 5.5 )
@@ -62,3 +63,7 @@ collision_layer = 0
 [node name="ShadowShape" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 1.25, -6.25 )
 shape = SubResource( 1 )
+
+[node name="ShadowSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -6.0

@@ -16,6 +16,7 @@ func _on_TorchDetect_body_entered(body):
 		
 		light.get_node("CollisionPolygon2D").set_deferred("disabled", false)
 		light.get_node("ShadowPlatform2/CollisionShade2D").set_deferred("disabled", false)
+		get_node("CollisionShape2D").set_deferred("disabled", true)
 		light.visible = true
 		
 #		ladder.visible = true
