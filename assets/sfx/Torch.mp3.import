@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Torch.mp3-1b35312fa3f296c1583861c951ddba21.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Torch.mp3"
+dest_files=[ "res://.import/Torch.mp3-1b35312fa3f296c1583861c951ddba21.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

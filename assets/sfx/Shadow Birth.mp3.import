@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Shadow Birth.mp3-e5b91d0b87f2941b39cf5cd7d5813ba4.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Shadow Birth.mp3"
+dest_files=[ "res://.import/Shadow Birth.mp3-e5b91d0b87f2941b39cf5cd7d5813ba4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

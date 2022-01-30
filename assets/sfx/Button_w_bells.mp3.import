@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Button_w_bells.mp3-dcb472c8e18d84da17a64c9fbdad424f.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Button_w_bells.mp3"
+dest_files=[ "res://.import/Button_w_bells.mp3-dcb472c8e18d84da17a64c9fbdad424f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

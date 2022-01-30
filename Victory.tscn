@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Victory Page_w_background.png" type="Texture" id=1]
+[ext_resource path="res://assets/music/UmbralVictory.wav" type="AudioStream" id=2]
+[ext_resource path="res://Victory.gd" type="Script" id=3]
+
+[node name="Victory" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="VictoryBanner" type="Sprite" parent="."]
+position = Vector2( 249, 141 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )

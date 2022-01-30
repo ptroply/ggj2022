@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ShadowFantasyBGM.wav-05c5aff3bd81c6e49e0ab8f15b77a736.sample"
+
+[deps]
+
+source_file="res://assets/music/ShadowFantasyBGM.wav"
+dest_files=[ "res://.import/ShadowFantasyBGM.wav-05c5aff3bd81c6e49e0ab8f15b77a736.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

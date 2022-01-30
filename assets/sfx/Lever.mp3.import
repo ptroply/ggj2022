@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Lever.mp3-7b3b89c87fdaefb59e42cfb83cee8f5e.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Lever.mp3"
+dest_files=[ "res://.import/Lever.mp3-7b3b89c87fdaefb59e42cfb83cee8f5e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

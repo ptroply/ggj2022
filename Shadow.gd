@@ -6,17 +6,29 @@ const Friction = 0.4
 const AirFriction = 0.002
 const JumpForce = 200
 
+var isInLight : bool
 var Acceleration = 450
 var Gravity : int = 360
-var motion = Vector2.ZERO
+var motion : Vector2 = Vector2()
 
 onready var sprite = $ShadowSprite
 onready var animationPlayer = $AnimationPlayer
 #onready var shadowBox = $ShadowShape2D
 #onready var shadowBox2 = $Area2D/ShadowShape
 
+func _on_Light_area_entered(_area):
+	isInLight = true
+
+
+func _on_Light_area_exited(_area):
+	isInLight = false
+
+
+func _on_Player_ready():
+	isInLight = false
+	visible = false
+
 func _physics_process(delta):
-	
 #	if visible == false:
 #		shadowBox.set_disabled(true) 
 ##		shadowBox2.set_disabled(true)
@@ -51,3 +63,6 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, AirFriction)
 	
 	motion = move_and_slide(motion, Vector2.UP)
+
+
+

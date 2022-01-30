@@ -1,22 +1,49 @@
 extends KinematicBody2D
 
-export var location : Vector2 = Vector2()
 
 const Acceleration = 450
 const MaxSpeed = 80
 const Friction = 0.4
 const AirFriction = 0.002
-const Gravity = 360
 const JumpForce = 200
 
+var Gravity = 360
+
+var isInLight : bool = false
+var isOnLadder : bool = false
 var motion : Vector2 = Vector2()
 
 onready var sprite = $Sprite
 onready var animationPlayer = $AnimationPlayer
+onready var walkingSound = $WalkingSound
+
+func _on_Light_area_entered(_area):
+	isInLight = true
+
+
+func _on_Light_area_exited(_area):
+	isInLight = false
 
 func _physics_process(delta):
 	
 	var inputX = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	
+	if isOnLadder:
+		
+		if Input.is_action_pressed("ui_up"):
+			Gravity = 0
+			motion.x = 0
+			motion.y = -MaxSpeed
+			
+		elif Input.is_action_pressed("ui_down"):
+			motion.x = 0
+			motion.y = MaxSpeed
+			
+		else:
+			motion.y = 0
+			
+	else:
+		Gravity = 360
 	
 	if inputX != 0:
 		animationPlayer.play("walk")
@@ -34,6 +61,12 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = -JumpForce
+		
+		if inputX != 0:
+			walkingSound.play()
+		else:
+			walkingSound.stop()
+			
 	else:
 		if Input.is_action_just_released("ui_up") and motion.y < -JumpForce/2:
 			motion.y = -JumpForce/2
@@ -41,4 +74,8 @@ func _physics_process(delta):
 		if inputX == 0:
 			motion.x = lerp(motion.x, 0, AirFriction)
 	
+	
 	motion = move_and_slide(motion, Vector2.UP)
+
+
+

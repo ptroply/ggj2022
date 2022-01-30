@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/UmbralVictory.wav-0dc136d1585a58b02dc10c569223f487.sample"
+
+[deps]
+
+source_file="res://assets/music/UmbralVictory.wav"
+dest_files=[ "res://.import/UmbralVictory.wav-0dc136d1585a58b02dc10c569223f487.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
